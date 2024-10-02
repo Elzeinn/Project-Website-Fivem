@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    border: 10px solid #f3f3f3; 
+    border-top: 10px solid yellow;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
+    font-size: 18px;
+    animation: fadeIn 1.5s infinite alternate;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+body.loading #loading-screen {
+    display: flex;
+}
+
+body.loaded #loading-screen {
+    display: none;
+}
+
+body.loading {
+    overflow: hidden;
+}
+
+body.loaded {
+    overflow: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(/assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body.loading .container {
+    visibility: hidden;
+}
+
+body.loaded .navbar-menu {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.loaded .content-teks {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.statistik-page {
+    background-image: url(/assets/bg1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body.galeri-page {
+    background-image: url(/assets/galeri.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body.management-page {
+    background-image: url(/assets/management.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Navbar Styles */
+.navbar-menu {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.navbar-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 10px;
+    padding: 0;
+}
+
+.navbar-menu ul li {
+    display: flex;
+    align-items: center; 
+}
+
+.navbar-menu ul li.logo img {
+    width: 100px;
+}
+
+.navbar-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
+.navbar-menu ul li a:hover {
+    color: yellow;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.bar {
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    margin: 3px 0;
+    border-radius: 2px;
+}
+
+/* Content Styles */
+.content-teks {
+    margin-top: 150px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out 0.5s, transform 1s ease-in-out 0.5s;
+}
+.content-teks p {
+    color: white;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    margin-bottom: -50px
+}
+
+.indovibes-teks {
+    font-family: 'Poppins';
+    font-weight: 900;
+    font-size: 100px;
+    color: yellow;
+}
+
+.roleplay {
+    color: white;
+}
+
+.indovibes-member {
+    color: yellow;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    margin-top: -50px;
+}
+
+.total-member {
+    color: white;
+}
+
+.content-teks button {
+    background-color: rgb(204, 207, 32);
+    color: black;
+    border: none;
+    padding: 15px 50px;
+    margin-top: 20px;
+    font-family: 'Poppins';
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.content-teks button:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.content-teks button a {
+    text-decoration: none;
+    color: black;
+}
+
+.management-teks {
+    font-family: 'Poppins';
+    font-weight: 900;
+    font-size: 80px;
+    color: white; 
+}
+
+
+
+.management-roleplay {
+    color: yellow;
+}
+
+.statistik-teks {
+    font-family: 'Poppins';
+    font-weight: 900;
+    font-size: 80px;
+    color: white; 
+}
+
+.statistik-roleplay {
+    color: yellow;
+}
+
+.statistik-card {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(40px); /* Initially moved down */
+    transition: opacity 4s ease-in-out, transform 4s ease-in-out; /* Longer duration */
+}
+
+.statistik-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.statistik-card.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide up */
+}
+
+.jumlah {
+    border-radius: 50%;
+    background-color: yellow;
+    color: black;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+    opacity: 0; /* Initially hidden */
+    transform: scale(0.5); /* Initially scaled down */
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out; /* Longer duration */
+}
+
+.jumlah.visible {
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Scale to normal size */
+}
+
+.statistik-text {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(10px); /* Initially moved down */
+    transition: opacity 1.5s ease-in-out 1s, transform 1.5s ease-in-out 1s; /* Longer duration with delay */
+}
+
+.statistik-text.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide up */
+}
+
+.management-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Menyelaraskan semua konten ke tengah */
+    margin-top: 50px;
+}
+
+.content-teks {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+
+.profile-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Mulai dengan kartu yang tidak terlihat */
+    transform: translateY(20px); /* Mulai dengan posisi di bawah */
+    transition: opacity 1.5s ease-in-out 0.6s, transform 0.6s ease-in-out 1s; /* Longer duration with delay */
+}
+.profile-card.visible {
+    opacity: 1; /* Kartu menjadi terlihat */
+    transform: translateY(0); /* Kartu bergerak ke posisi normal */
+}
+
+
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 3s ease-in-out;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+
+}
+
+.profile-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: white;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.profile-role {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: yellow;
+    margin-top: 5px;
+    transition: color 0.3s ease;
+}
+
+.profile-card:hover .profile-name {
+    color: yellow; /* Ubah warna nama saat hover */
+}
+
+.profile-card:hover .profile-role {
+    color: white; /* Ubah warna jabatan saat hover */
+}
+
+@media (max-width: 768px) {
+    .indovibes-teks {
+        font-size: 24px;
+    }
+}
